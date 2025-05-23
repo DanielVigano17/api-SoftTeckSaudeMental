@@ -2,12 +2,12 @@
     "dicas": [
         {
             "id": 1,
-            "texto": "Faça uma pausa de 5 minutos a cada hora de trabalho.",
+            "conteudo": "Faça uma pausa de 5 minutos a cada hora de trabalho.",
             "categoria": "Bem-estar"
         },
         {
             "id": 2,
-            "texto": "Pratique respiração profunda por 2 minutos.",
+            "conteudo": "Pratique respiração profunda por 2 minutos.",
             "categoria": "Mindfulness"
         }
     ]

@@ -2,11 +2,11 @@
     "lembretes": [
         {
             "id": 1,
-            "texto": "Já fez seu check-in emocional de hoje?"
+            "conteudo": "Já fez seu check-in emocional de hoje?"
         },
         {
             "id": 2,
-            "texto": "Hora de se alongar!"
+            "conteudo": "Hora de se alongar!"
         }
     ]
 } 
