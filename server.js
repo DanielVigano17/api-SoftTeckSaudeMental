@@ -1,7 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const fs = require('fs').promises;
-const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -10,39 +8,53 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Função auxiliar para ler arquivos JSON
-async function readJsonFile(filename) {
-    const filePath = path.join(__dirname, filename);
-    const data = await fs.readFile(filePath, 'utf8');
-    return JSON.parse(data);
-}
+// Dados mockados
+const mensagens = [
+    {
+        id: 1,
+        texto: "Você está indo muito bem! Tire um tempo para reconhecer suas conquistas."
+    },
+    {
+        id: 2,
+        texto: "Respire fundo. Às vezes, desacelerar é o melhor caminho para avançar."
+    }
+];
+
+const dicas = [
+    {
+        id: 1,
+        texto: "Faça uma pausa de 5 minutos a cada hora de trabalho.",
+        categoria: "Bem-estar"
+    },
+    {
+        id: 2,
+        texto: "Pratique respiração profunda por 2 minutos.",
+        categoria: "Mindfulness"
+    }
+];
+
+const lembretes = [
+    {
+        id: 1,
+        texto: "Já fez seu check-in emocional de hoje?"
+    },
+    {
+        id: 2,
+        texto: "Hora de se alongar!"
+    }
+];
 
 // Rotas
-app.get('/api/mensagens', async (req, res) => {
-    try {
-        const data = await readJsonFile('mensagens.json');
-        res.json(data.mensagens);
-    } catch (error) {
-        res.status(500).json({ error: 'Erro ao buscar mensagens' });
-    }
+app.get('/api/mensagens', (req, res) => {
+    res.json(mensagens);
 });
 
-app.get('/api/dicas', async (req, res) => {
-    try {
-        const data = await readJsonFile('dicas.json');
-        res.json(data.dicas);
-    } catch (error) {
-        res.status(500).json({ error: 'Erro ao buscar dicas' });
-    }
+app.get('/api/dicas', (req, res) => {
+    res.json(dicas);
 });
 
-app.get('/api/lembretes', async (req, res) => {
-    try {
-        const data = await readJsonFile('lembretes.json');
-        res.json(data.lembretes);
-    } catch (error) {
-        res.status(500).json({ error: 'Erro ao buscar lembretes' });
-    }
+app.get('/api/lembretes', (req, res) => {
+    res.json(lembretes);
 });
 
 // Rota de saúde
